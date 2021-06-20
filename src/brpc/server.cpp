@@ -16,7 +16,7 @@
 // under the License.
 
 
-#include <wordexp.h>                                // wordexp
+#include <wordexp.h>                                // ???wordexp
 #include <iomanip>
 #include <arpa/inet.h>                              // inet_aton
 #include <fcntl.h>                                  // O_CREAT
@@ -1058,6 +1058,8 @@ int Server::StartInternal(const butil::ip_t& ip,
     return 0;
 }
 
+////mihooke
+////------------------------start重载
 int Server::Start(const butil::EndPoint& endpoint, const ServerOptions* opt) {
     return StartInternal(
         endpoint.ip, PortRange(endpoint.port, endpoint.port), opt);
@@ -1091,6 +1093,8 @@ int Server::Start(const char* ip_str, PortRange port_range,
     }
     return StartInternal(ip, port_range, opt);
 }
+////mihooke
+////------------------------start重载
 
 int Server::Stop(int timeout_ms) {
     if (_status != RUNNING) {
